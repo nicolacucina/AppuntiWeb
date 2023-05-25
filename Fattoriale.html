@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script>
+            /*
+            Scrivi un semplice documento HTML/JavaScript contenente un’area di testo e un bottone. 
+            Cliccando sul bottone viene eseguita una funzione che fa inserire un numero k all’utente 
+            tramite un opportuno prompt e che stampa nell’area di testo il fattoriale di k.
+            */
+            function fattoriale(){
+                var k = prompt("inserire un numero")
+                var n = 1
+                while(k > 1){
+                    n = n * k
+                    k--
+                }
+                var m = document.getElementById("a1")
+                m.innerHTML = n
+           }
+        </script>
+    </head>
+
+    <body>
+        <textarea id="a1"> Questo è un testo di prova </textarea>
+        <br/><br/>
+        <button id="b2" onclick="fattoriale()"> Calcola fattoriale </button>
+    </body>
+</html>

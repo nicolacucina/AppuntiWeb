@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script type='text/javascript'>
+            /*
+            Sia data una pagina HTML in cui sono presenti due elementi paragrafo, uno con id 
+            "p1" e l’altro con id "p2", ciascuno contenente una frase, e un bottone con etichetta "switch". 
+
+            Scrivere all’interno di tale pagina una funzione JavaScript che, su pressione del bottone "switch"
+            scambia i contenuti dei due elementi paragrafi*/
+
+            //non mettere il nome della funzione con lo stesso nome dell'id del bottone, si rompe
+            
+            function cambia(){
+                var n = document.getElementById(1);
+                var m = document.getElementById(2);
+                /*
+                var s = n;
+                n.innerHTML = m.innerHTML;
+                m.innerHTML = s.innerHTML;
+                così non funziona perchè s e n fanno riferimento alla stessa cosa, quando sovrascrivo n sovrascivo anche s
+                */
+                var s = n.innerHTML;
+                n.innerHTML = m.innerHTML;
+                m.innerHTML = s;
+                
+            }
+        </script
+    </head>
+
+    <body>
+        <p id="1">Questa è una frase di prova</p>
+        <br/>
+        <p id="2">Anche questa è una frase di prova</p>
+        <button id="switch" onclick="cambia()"> Switch </button>
+    </body>
+</html>

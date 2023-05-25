@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Current Date</title>
+        <style type="text/css">
+            td{
+                text-align: left;
+                font-weight: bold;
+                vertical-align: middle;
+                background-color: silver
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <td>Today is: </td>
+                <td id="date"></td>
+            </tr>
+        </table>    
+
+        <script>
+            /* Definisci una semplice pagina HTML tale che: 
+             * (i) il titolo della finestra è "Current Date"
+             * (ii) nel suo body appare una tabella con una sola riga e due colonne: 
+             *  nella prima colonna c’è scritto "Today is: "
+             *  nella seconda colonna c’è scritta la data corrente, calcolata tramite codice JavaScript
+             */
+            var n = document.getElementById("date");
+            n.innerHTML = new Date();
+        </script>
+    </body>
+</html>

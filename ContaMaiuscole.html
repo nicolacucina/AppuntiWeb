@@ -1,0 +1,34 @@
+<html>
+    <head>Bellissimo Titolo</head>
+    <body>
+        <p id="testo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent non tortor eu urna aliquam congue.
+            Donec sit amet dapibus quam.
+            Nunc magna mi, fringilla quis blandit ac, facilisis non est.
+            Sed sollicitudin accumsan convallis.
+            Cras ultricies, ex in volutpat commodo, ligula massa dapibus dui, at bibendum risus ligula ac eros.
+            Sed hendrerit, sem in commodo varius, orci lacus eleifend urna, vitae tempus tellus nulla a lorem.
+            Aliquam a scelerisque arcu.
+            Proin vitae ipsum eu eros rutrum aliquet.
+            Curabitur id turpis vitae tortor egestas sagittis.
+            Ut odio orci, fringilla et ex vitae, scelerisque hendrerit justo.
+            Etiam sed blandit massa.
+            Suspendisse sit amet arcu turpis.
+            Cras laoreet diam ac tortor consequat tristique.
+            In hac habitasse platea dictumst.</p>
+            <script>
+                    var n = document.getElementById("testo")
+                    var s = n.innerHTML
+                    var f = function(text){
+                        let result = 0
+                        for(let i in text){
+                            if(text[i] === text[i].toUpperCase() && text[i] !== text[i].toLowerCase()){
+                                result++;
+                            }
+                        }
+                    alert(result)
+                    }
+                    f(s)
+            </script>
+    </body>
+</html>

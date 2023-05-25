@@ -1,0 +1,30 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <p class="count">Ciao</p>
+        <p class="count">Mario</p>
+        <p class="count">Luigi</p>
+        <p class="count">Ciao</p>
+        <p class="count">Ciao</p>
+        <p class="test">Ciao</p>
+        <script>
+            /* 
+             * Scrivi un codice JavaScript che, nell'ambito di un documento HTML, stampa un alert
+             * che riporta il numero totale di caratteri nei paragrafi con attributo class di valore "count", ossia il 
+             * numero totale di caratteri nel contenuto degli elementi <p class="count">.
+             */
+            var list = document.getElementsByClassName("count")
+            var count = 0
+            /* Non posso usare forEach() perchè list non è un array, è una HTML Collection
+            list.every(function(item){
+                count += String(item.innerHTML).length
+            })*/
+            for(let el of list){
+                count += String(el.innerHTML).length
+            }
+            alert(count);
+        </script>
+    </body>
+</html>

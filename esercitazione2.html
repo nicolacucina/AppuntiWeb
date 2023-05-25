@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>esercitazione 2</title>
+        <script>
+            function richiedi() {
+                var testo =  "testo=" + document.getElementById("prova").innerHTML;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                        var obj = JSON.parse(xhr.responseText)
+                        var caratteri = obj.caratteri
+                        console.log(caratteri)
+                        var spazi = obj.spazi
+                        console.log(spazi)
+                        /*var n = document.createElement("p")
+                        n.innerHTML = "Caratteri: " + caratteri + " Spazi: " + spazi;
+                        document.body.appendChild(n)*/
+                        var n = document.getElementById("paragrafo")
+                        n.innerHTML = "Caratteri: " + caratteri + " Spazi: " + spazi;
+                    }
+                }
+                xhr.open("POST", "/server", true)
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                xhr.send(testo)
+            }
+        </script>   
+    </head>
+    <body>
+        <textarea id="prova">Questo è un testo di prova</textarea>
+        <br/><br/>
+        <button id="bottone" onclick="richiedi()">invia</button>
+        <!--non posso usare un form perchè altrimenti la richiesta la fa da solo senza utilizzare il codice javascript,
+            devo usare un "form" nel senso estetico. Se uso un form devo restituire l'intera pagina html 
+            <form action="/server" method="post"> 
+            <input type="text" id="testo" name="testo">
+            <input type="submit" value="Submit">
+        </form>-->
+        <p id="paragrafo"></p>        
+    </body>
+
+</html>

@@ -21,7 +21,7 @@
             }
 
             function aggiornaLista(){
-                var newcountry = "newcountry="+document.getElementById("newprova").value//con i form usa value per accedere ai valori
+                var newcountry = "newcountry="+document.getElementById("newprova").value
                 var newcapital = "newcapital="+document.getElementById("newprova1").value
                 var params = newcountry + "&" + newcapital
                 console.log(newcountry)
@@ -43,11 +43,6 @@
     </head>
     <body>
         <h1>Capitals of the World</h1>
-        <!--<textarea id="prova"></textarea>
-        <br/><br/>
-        <button id="bottone" onclick="inviaCapitale()">Send</button>
-        <br/><br/>
-        <p id="paragrafo">--</p>-->
 
         <form><!--non premere invio da dentro ad un form altrimenti parte la richiesta dal from e non dal bottone-->
             <label for="countryName">Country</label>
@@ -57,7 +52,7 @@
         <br/>
         <p id="paragrafo">--</p>
 
-        <form><!--non premere invio da dentro ad un form altrimenti parte la richiesta dal from e non dal bottone-->
+        <form>
             <label for="countryName">Insert New Country</label>
             <input type="text" name="newcountry" size="20" maxlength="30" id="newprova"/>
             <label for="countryName">Insert New Capital</label>

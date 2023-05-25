@@ -1,12 +1,12 @@
 /* Scrivere il codice Java di un piccolo server con le seguenti caratteristiche:
-        Il server gestisce più client contemporaneamente;
-        All’avvio il server si mette in ascolto sulla porta 2000;
-        Quando un client fa richiesta di connessione, il server risponde inviando il seguente messaggio 'Sei connesso: Inserisci una frase terminata da %'';
-        Una volta ricevuta la frase, il server restituisce al client i seguenti messaggi: 
-            Un messaggio che lo informa di quante parole (stringhe senza spazi) ci sono nella frase;
-            Un messaggio che lo informa di quale è la parola più lunga e che gli dice anche da quanti caratteri è formata.
-            Il server saluta e disconnette il client.
-        Se il client inserisce soltanto ‘%’, il server assume che sia stata inserita la sola stringa vuota 
+ * Il server gestisce più client contemporaneamente,
+ * All’avvio il server si mette in ascolto sulla porta 2000;
+ * Quando un client fa richiesta di connessione, il server risponde inviando il seguente messaggio 'Sei connesso: Inserisci una frase terminata da %';
+ * Una volta ricevuta la frase, il server restituisce al client i seguenti messaggi: 
+ *  Un messaggio che lo informa di quante parole (stringhe senza spazi) ci sono nella frase;ù
+ *  Un messaggio che lo informa di quale è la parola più lunga e che gli dice anche da quanti caratteri è formata.
+ *  Il server saluta e disconnette il client.
+ * Se il client inserisce soltanto ‘%’, il server assume che sia stata inserita la sola stringa vuota 
 */
 
 import java.io.*;
@@ -61,10 +61,11 @@ public class StringAnalyzerMultiThread extends Thread{
             }else if(input.charAt(input.length()-1) != '%'){
                 throw new IllegalArgumentException("wrong string format, use <string%>");
             }else{
-/* Tolgo il % perchè ha fatto il suo ruolo di delimitatore di frase.
-Se considero lo spazio come fine di una parola, quando leggo l'ultima parola, la faccio seguire da uno spazio 
-per riutilizzare lo stesso if e non dover fare codice per gestire separatamente l'ultima parola 
-*/
+
+            /* Tolgo il % perchè ha fatto il suo ruolo di delimitatore di frase.
+             * Se considero lo spazio come "fine di una parola", quando leggo l'ultima parola, la faccio seguire da uno spazio 
+             * per riutilizzare lo stesso if e non dover fare codice per gestire separatamente l'ultima parola 
+             */
                 String str = input.substring(0, input.length()-1) + " ";
                 String temp = "";
 
@@ -87,7 +88,6 @@ per riutilizzare lo stesso if e non dover fare codice per gestire separatamente 
                 out.flush();
                 out.write("Numero di caratteri in questa parola: "+ max.length() + "\r\n");
                 out.flush();
-                
             }
             out.write("Fine sessione");
             out.flush();

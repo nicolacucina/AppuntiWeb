@@ -1,9 +1,9 @@
-/*Si realizzi un piccolo server in JavaScript, eseguibile in Node.js, tale che:
-All’avvio si mette in ascolto sulla porta 8080.
-Risponde a richieste di servizio di tipo GET con URL della forma: http://localhost:8080/server?command=com&string=str
-dove, com è uno tra i seguenti comandi {numdigits, numletters} e str è una stringa. In
-funzione del comando, il server restituisce il numero di cifre (numdigits) o il numero lettere
-maiuscole o minuscole (numletters) della stringa*/
+/* Si realizzi un piccolo server in JavaScript, eseguibile in Node.js, tale che:
+ * -All’avvio si mette in ascolto sulla porta 8080.
+ * -Risponde a richieste di servizio di tipo GET con URL della forma: http://localhost:8080/server?command=com&string=str
+ * dove, com è uno tra i seguenti comandi {numdigits, numletters} e str è una stringa.
+ * -In funzione del comando, il server restituisce il numero di cifre (numdigits) o il numero lettere maiuscole o minuscole (numletters) della stringa
+ */
 
 var express = require('express');
 var app = express();

@@ -1,10 +1,20 @@
+/* Realizza una servlet in base alle seguenti specifiche.
+ * Il servizio viene avviato attraverso una pagina html che contiene il seguente form. Il metodo di richiesta del servizio è GET.
+ * Una volta inserito il nome nell’apposito campo e premuto il pulsante "Submit", il servizio genera una pagina web in cui: 
+ *  -viene salutato l’utente in base al nome inserito,
+ *  -gli viene detto quanti visitatori hanno già acceduto al servizio;
+ *  -gli viene fornito in modo casuale un messaggio (ad esempio un proverbio) in una lista di possibili messaggi 
+ *   memorizzata all’interno di un file di nome "messages.txt", gestito dal servizio stesso. 
+ * estendere il servizio con una operazione di post con cui aggiungere una nuova linea al file di testo.
+ */
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
-/*
+/* voce da aggiungere nel web.xml di tomcat
  * <servlet>
 			<servlet-name>RandomMessage</servlet-name>
 			<servlet-class>RandomMessage</servlet-class>
@@ -15,6 +25,7 @@ import java.util.*;
 			<url-pattern>/randmess</url-pattern>
 		</servlet-mapping>
  */
+
 public class RandomMessage extends HttpServlet{
 
     private int numVisitors;
@@ -22,6 +33,7 @@ public class RandomMessage extends HttpServlet{
 
     public void init(){
         this.numVisitors = 0;
+        //come si ottinene il path in una servlet
         final String SERVLET_PATH = RandomMessage.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	    String servletPath = SERVLET_PATH.replace("%20"," ");
         this.textPath = servletPath + "/texts/";
@@ -33,12 +45,13 @@ public class RandomMessage extends HttpServlet{
 	    String name = rq.getParameter("name");
 
         String filename = textPath + "messages.txt";
-        String route = new File(filename).getAbsolutePath();// whole path of the file has to be written within the double qoutes     
+        String route = new File(filename).getAbsolutePath();
         String li= Line(route);
         
         rs.setContentType ("text/html");
         PrintWriter output = rs.getWriter();
 
+        //crea pagina html di risposta
         StringBuffer buffer = new StringBuffer();
         buffer.append ("<html>\n");
   	    buffer.append ("<head><title>Random Message</title></head>\n");
@@ -70,14 +83,9 @@ public class RandomMessage extends HttpServlet{
         String message = rq.getParameter("words");
         
         String filename = textPath + "messages.txt";
-        PrintWriter pin = new PrintWriter(new FileWriter(filename, true));//mi serve di appendere
+        PrintWriter pin = new PrintWriter(new FileWriter(filename, true));
         pin.println(message);
         pin.flush();
         pin.close();
     }
 }
-
-/*
- * estendere il servizio, oltre a ricevere messaggio a caso, 
- * con una post aggiungo una nuova linea al file di testo.
- */

@@ -48,7 +48,7 @@ public class RandomMessage extends HttpServlet{
         String route = new File(filename).getAbsolutePath();
         String li= Line(route);
         
-        rs.setContentType ("text/html");
+        rs.setContentType("text/html");
         PrintWriter output = rs.getWriter();
 
         //crea pagina html di risposta

@@ -16,6 +16,7 @@ fs.readFile(filename, 'utf-8',(err, data) =>{
     if (err) throw err
     obj = JSON.parse(data)
 })
+//obj = JSON.parse(fs.readFileSync(filename, 'utf-8')) //per lettura sincrona
 
 var bp = require('body-parser')
 var express = require('express');

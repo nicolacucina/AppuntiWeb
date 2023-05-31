@@ -1,11 +1,11 @@
 /* Si realizzi una piccola applicazione web in JavaScript/Node.js tale che:
- * -All’avvio si mette in ascolto sulla porta 8080.
+ * -All'avvio si mette in ascolto sulla porta 8080.
  * -L’accesso al servizio è una pagina html contenente un form in cui è possibile inserire un
  * testo da inviare al server tramite una richiesta POST; la richiesta al server avviene tramite una chiamata AJAX.
  * -Il server risponde fornendo il numero di caratteri totali del testo e il numero di spazi, in un unico oggetto JSON.
  * -I dati restituiti dal server sono visualizzati nella stessa pagina iniziale, sotto al form.
 Nota: nella richiesta post con AJAX, prima di effettuare la chiamata al metodo send, impostare
-questa l’header del pacchetto con questa istruzione (xhr è l’oggetto XMLHTTPRequest):
+questa l'header del pacchetto con questa istruzione (xhr è l'oggetto XMLHTTPRequest):
 xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded"); */
 
 var express = require('express');
